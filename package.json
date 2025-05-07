@@ -11,7 +11,8 @@
     "android/build.gradle",
     "dist/",
     "src/",
-    "tsconfig.json"
+    "tsconfig.json",
+    "rollup.config.js"
   ],
   "author": "Yuku Kotani",
   "license": "Apache-2.0",
@@ -40,7 +41,7 @@
     "clean": "rimraf ./dist",
     "watch": "tsc --watch",
     "prepublishOnly": "npm run build",
-    "postinstall": "npx tsc"
+    "postinstall": "npm run clean && rollup -c rollup.config.js --bundleConfigAsCjs"
   },
   "devDependencies": {
     "@capacitor/android": "^5.0.0",
